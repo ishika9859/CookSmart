@@ -1,4 +1,4 @@
-import React from "react";
+ import React, { useEffect, useState } from "react"; 
 import Slider from "react-slick";
 import { useFetch } from "./useFetch";
 import { Divide } from "lucide-react";
@@ -11,41 +11,42 @@ const TredingRecipie = ({ title, fetchUrl }) => {
   // console.log("my meal data", data);
   const meals = data?.meals || [];
 
+  const [slidesToShow, setSlidesToShow] = useState(6);
+
+useEffect(() => {
+  const updateSlides = () => {
+    if (window.innerWidth < 640) {
+      setSlidesToShow(2);
+    } else if (window.innerWidth < 768) {
+      setSlidesToShow(3);
+    } else if (window.innerWidth < 1024) {
+      setSlidesToShow(4);
+    } else {
+      setSlidesToShow(6);
+    }
+  };
+
+  updateSlides();
+
+  window.addEventListener("resize", updateSlides);
+
+  return () => window.removeEventListener("resize", updateSlides);
+}, []);
+
   const settings = {
-  dots: false,
-  arrows: false,
-  infinite: true,
-  speed: 2000,
-  slidesToShow: 6,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 0,
-  cssEase: "linear",
+    dots: false,
+    arrows:false,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    cssEase: "linear",
 
-  appendDots: () => null,
-  customPaging: () => null,
-
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 3,
-      },
-    },
-    {
-      breakpoint: 640,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-  ],
-};
+    appendDots:()=>null,
+    customPaging:()=>null,
+  };
   const SlickSlider = Slider.default || Slider;
 
   if (loading)
@@ -66,7 +67,7 @@ const TredingRecipie = ({ title, fetchUrl }) => {
         <div className="w-full mx-auto ">
           <SlickSlider {...settings}>
             {meals.map((meal) => (
-              <div key={meal.idMeal} className="px-2 sm:px-4 flex justify-center">
+              <div key={meal.idMeal} className="px-10 flex justify-center">
                 <Link to={`/recipe/${meal.idMeal}/`}>
                 
                 <div className="relative bg-gray-900 rounded-xl shadow-xl shadow-black/50 overflow-hidden group transform transition duration-500 cursor-pointer border border-gray-800 hover:shadow-orange-600/50 mb-5">

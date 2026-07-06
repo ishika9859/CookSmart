@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { useFetch } from "./useFetch";
 import { Divide } from "lucide-react";
@@ -11,31 +11,39 @@ const RecipieSlider = ({ title, fetchUrl }) => {
   // console.log("my meal data", data);
   const meals = data?.meals || [];
 
-  const settings = {
-  dots: false,
-  infinite: true,
-  speed: 600,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-  cssEase: "linear",
+  const [slidesToShow, setSlidesToShow] = useState(3);
 
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 640,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-};
+  // test
+useEffect(() => {
+  const updateSlides = () => {
+    if (window.innerWidth < 640) {
+      setSlidesToShow(1);
+    } else if (window.innerWidth < 1024) {
+      setSlidesToShow(2);
+    } else {
+      setSlidesToShow(3);
+    }
+  };
+
+  updateSlides();
+
+  window.addEventListener("resize", updateSlides);
+
+  return () => window.removeEventListener("resize", updateSlides);
+}, []);
+
+// test
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 600,
+    slidesToShow:  slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+  };
   const SlickSlider = Slider.default || Slider;
 
   if(loading) return(
