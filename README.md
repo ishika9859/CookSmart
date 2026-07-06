@@ -88,7 +88,7 @@ The application was built with a strong focus on **data preprocessing**, **ingre
 
 ---
 
-## 🧠 Recommendation Engine
+##  Recommendation Engine
 
 Unlike traditional recipe applications that rely solely on API search, CookSmart uses a custom ingredient-matching pipeline to recommend recipes based on the ingredients selected by the user.
 
@@ -221,7 +221,7 @@ The raw dataset is processed using custom preprocessing scripts before being con
 
 The landing page introduces CookSmart and allows users to begin searching recipes using the ingredients available in their kitchen.
 
-<img width="1900" height="912" alt="image" src="https://github.com/user-attachments/assets/f084b9be-b4b1-46b5-be3a-cc9eb805fa18" />
+<img  alt="image" src="https://github.com/user-attachments/assets/f084b9be-b4b1-46b5-be3a-cc9eb805fa18" />
 
 
 ---
@@ -230,7 +230,7 @@ The landing page introduces CookSmart and allows users to begin searching recipe
 
 Users can search and select multiple ingredients, which are then used by the recommendation engine to identify the most relevant recipes.
 
-<img width="1377" height="587" alt="image" src="https://github.com/user-attachments/assets/5d1d697f-3dd0-40e0-9268-30ab8fdc8628" />
+<img alt="image" src="https://github.com/user-attachments/assets/5d1d697f-3dd0-40e0-9268-30ab8fdc8628" />
 
 
 ---
@@ -239,7 +239,7 @@ Users can search and select multiple ingredients, which are then used by the rec
 
 Recipes are ranked based on ingredient matching, displaying both available and missing ingredients to help users decide what they can cook.
 
-<img width="1867" height="897" alt="image" src="https://github.com/user-attachments/assets/93667f5e-c8ad-4640-8ad5-fdca8f73245f" />
+<img  alt="image" src="https://github.com/user-attachments/assets/93667f5e-c8ad-4640-8ad5-fdca8f73245f" />
 
 
 ---
@@ -248,8 +248,8 @@ Recipes are ranked based on ingredient matching, displaying both available and m
 
 Each recipe includes the complete ingredient list, cooking instructions, and a dedicated detail page for a better cooking experience.
 
-<img width="1858" height="887" alt="image" src="https://github.com/user-attachments/assets/dba88b6d-1fd8-41c6-a44d-3a190b3996e7" />
-<img width="1851" height="892" alt="image" src="https://github.com/user-attachments/assets/57ea8b29-7a70-455e-a039-eb87651680b4" />
+<img  alt="image" src="https://github.com/user-attachments/assets/dba88b6d-1fd8-41c6-a44d-3a190b3996e7" />
+<img  alt="image" src="https://github.com/user-attachments/assets/57ea8b29-7a70-455e-a039-eb87651680b4" />
 
 ---
 
