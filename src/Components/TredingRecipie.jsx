@@ -12,19 +12,40 @@ const TredingRecipie = ({ title, fetchUrl }) => {
   const meals = data?.meals || [];
 
   const settings = {
-    dots: false,
-    arrows:false,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 0,
-    cssEase: "linear",
+  dots: false,
+  arrows: false,
+  infinite: true,
+  speed: 2000,
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 0,
+  cssEase: "linear",
 
-    appendDots:()=>null,
-    customPaging:()=>null,
-  };
+  appendDots: () => null,
+  customPaging: () => null,
+
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+  ],
+};
   const SlickSlider = Slider.default || Slider;
 
   if (loading)
@@ -45,7 +66,7 @@ const TredingRecipie = ({ title, fetchUrl }) => {
         <div className="w-full mx-auto ">
           <SlickSlider {...settings}>
             {meals.map((meal) => (
-              <div key={meal.idMeal} className="px-10 flex justify-center">
+              <div key={meal.idMeal} className="px-2 sm:px-4 flex justify-center">
                 <Link to={`/recipe/${meal.idMeal}/`}>
                 
                 <div className="relative bg-gray-900 rounded-xl shadow-xl shadow-black/50 overflow-hidden group transform transition duration-500 cursor-pointer border border-gray-800 hover:shadow-orange-600/50 mb-5">

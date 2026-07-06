@@ -12,15 +12,30 @@ const RecipieSlider = ({ title, fetchUrl }) => {
   const meals = data?.meals || [];
 
   const settings = {
-    dots: false,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-  };
+  dots: false,
+  infinite: true,
+  speed: 600,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  cssEase: "linear",
+
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
   const SlickSlider = Slider.default || Slider;
 
   if(loading) return(
