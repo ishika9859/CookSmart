@@ -14,7 +14,7 @@ const HomeView = ({
 }) => {
   return (
     <>
-      <main className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-4">
         <IngredientFinder
           selectedIngredients={selectedIngredients}
           setSelectedIngredients={setSelectedIngredients}
